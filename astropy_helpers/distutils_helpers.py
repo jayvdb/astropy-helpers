@@ -77,6 +77,9 @@ def get_distutils_option(option, commands):
         returns None.
     """
 
+    if os.getenv(option.upper().replace('-', '_'), ''):
+        return 'true'
+
     dist = get_dummy_distribution()
 
     for cmd in commands:
